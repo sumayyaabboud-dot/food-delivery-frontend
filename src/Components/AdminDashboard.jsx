@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-// استيراد المكونات الفرعية من المجلد الجديد
+
 import AddMeal from './DashboardList/AddMeal';
 import AddRestaurant from './DashboardList/AddRestaurant';
 import OrderManagement from './DashboardList/OrderManagement';
@@ -12,14 +12,14 @@ import RatingTable from './DashboardList/RatingTable';
 function AdminDashboard({ meals, setMeals }) {
   const [activeTab, setActiveTab] = useState('');
 
-  // تعريف متغيرات الـ States المشتركة التي تحتاجها الجداول
+  
   const [restaurantsList, setRestaurantsList] = useState([]);
   const [orders, setOrders] = useState([]);
   const [loadingOrders, setLoadingOrders] = useState(true);
   const [reviews, setReviews] = useState([]);
   const [loadingReviews, setLoadingReviews] = useState(true);
 
-  // دالة جلب المطاعم لتحديثها تلقائياً
+  
   const fetchRestaurants = async () => {
     try {
       const res = await axios.get('http://localhost:5005/api/restaurants');
@@ -35,7 +35,7 @@ function AdminDashboard({ meals, setMeals }) {
     fetchRestaurants();
   }, []);
 
-  // دالة اختيار المحتوى بناءً على التبويب النشط
+  
   const renderTabContent = () => {
     switch (activeTab) {
       case 'add-meal':
@@ -56,7 +56,7 @@ function AdminDashboard({ meals, setMeals }) {
             <h2>Welcome to Admin Dashboard 🚀</h2>
             <p>Please select an option from the sidebar to manage your content.</p>
             
-            {/* إضافة الصورة هنا */}
+            
             <img 
               src="https://i.ytimg.com/vi/ycKekxBGZAs/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC6mU-7A_CR93RAQGTRDF7bdxFMwQ"
               style={{ width: '600px', height: 'auto', borderRadius: '10px', marginTop: '10px', boxShadow: '40px 4px 10px rgba(0,0,0,0.1)' }} 
@@ -66,13 +66,13 @@ function AdminDashboard({ meals, setMeals }) {
     }
   };
 
-  // تصميم القائمة الجانبية وتنسيق الواجهة
+  
   return (
     <div style={{ display: 'flex', minHeight: '100vh', fontFamily: 'Arial, sans-serif' }}>
-      {/* القائمة الجانبية (Sidebar) */}
+      
       <div style={{ width: '250px', backgroundColor: '#2c3e50', color: 'white', padding: '20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
         
-        {/* جعل العنوان كزر يعيدك للصفحة الرئيسية عند الضغط عليه */}
+      
         <h2 
           onClick={() => setActiveTab('')} 
           style={{ 
@@ -88,7 +88,7 @@ function AdminDashboard({ meals, setMeals }) {
           <strong>Admin Dashboard</strong>
         </h2>
 
-        {/* زر Refresh مخصص للعودة للواجهة الترحيبية */}
+        
         <button 
           onClick={() => setActiveTab('')} 
           style={{
@@ -116,7 +116,7 @@ function AdminDashboard({ meals, setMeals }) {
         <button onClick={() => setActiveTab('rating-table')} style={btnStyle(activeTab === 'rating-table')}>⭐ Rating Table</button>
       </div>
 
-      {/* منطقة المحتوى المتغير */}
+      
       <div style={{ flex: 1, padding: '40px', backgroundColor: '#f8f9fa', overflowY: 'auto' }}>
         {renderTabContent()}
       </div>
@@ -124,7 +124,7 @@ function AdminDashboard({ meals, setMeals }) {
   );
 }
 
-// دالة لتنسيق الأزرار وجعل الزر النشط مميزاً
+
 const btnStyle = (isActive) => ({
   background: isActive ? '#3498db' : 'transparent',
   color: 'white',

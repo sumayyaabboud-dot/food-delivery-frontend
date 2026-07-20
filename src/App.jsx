@@ -208,14 +208,14 @@ return (
       style={{ backgroundColor: showAdmin && user && user.email === "admin@food.com" ? '#ffffff' : '#fff5eb', minHeight: '100vh' }}
     >
       
-      {/* 1. لوحة تحكم الأدمن أو واجهة المستخدم الرئيسية */}
+      
       {showAdmin && user && user.email === "admin@food.com" ? (
         <AdminDashboard meals={meals} setMeals={setMeals} />
       ) : (
         <>
           <Navbar user={user} handleNavClick={handleNavClick} />
 
-          {/* زر الانتقال للوحة التحكم يظهر فقط للأدمن */}
+          
           {user && user.email === "admin@food.com" && (
             <div style={{ textAlign: 'center', padding: '10px' }}>
               <button 
@@ -227,7 +227,7 @@ return (
             </div>
           )}
 
-          {/* حاوية الـ Hero والأزرار مع الخلفية */}
+          
           {user && (
             <div style={{ 
               display: 'flex', 
@@ -243,16 +243,16 @@ return (
               backgroundRepeat: 'no-repeat'
             }}>
               
-              {/* أ. الجانب الأيسر: يحتوي على الـ Hero وأسفله مباشرة أزرار السلة والأسعار */}
+              
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', flex: '1', minWidth: '300px', maxWidth: '500px' }}>
                 
                 <Hero />
 
-                {/* حاوية الـ Badges */}
+                
                 <div id="badges-section" style={{ display: 'flex', gap: '15px', alignItems: 'center', flexWrap: 'wrap', paddingLeft: '10px', scrollMarginTop: '20px' }}>
                   <Badges totalItems={totalItems} totalPrice={totalPrice} />
                   
-                  {/* زر إتمام الطلب */}
+                  
                   {totalItems > 0 && (
                     <button className="checkout-btn" onClick={handleCheckout}>Proceed to Checkout 🛒</button>
                   )}
@@ -261,7 +261,7 @@ return (
 
               </div>
 
-              {/* ب. الجانب الأيمن: يحتوي على القائمة المنسدلة فقط في أقصى اليمين */}
+              
               <header className="menu-header" style={{ 
                 margin: 0,
                 padding: '10px',
@@ -293,7 +293,7 @@ return (
                     🍔 Select Menu {isDropdownOpen ? '▲' : '▼'}
                   </button>
 
-                  {/* خيارات المنسدلة */}
+                  
                   {isDropdownOpen && (
                     <div style={{
                       position: 'absolute',
@@ -406,40 +406,40 @@ return (
           
          
 
-{/* واجهة ما قبل تسجيل الدخول */}
+
 {!user && (
   <div style={{ 
     display: 'flex', 
    
     paddingTop:'40px',
     alignItems: 'center', 
-    padding: '60px 20px',    /* زيادة الـ padding تعطي شعوراً بالمساحة أكبر */
+    padding: '60px 20px',    
     flexDirection: 'column',
     backgroundColor: 'transparent',
-    minHeight: '100vh',      /* هنا التعديل الأساسي: تغطية كامل طول الشاشة */
-    width: '100%',           /* التأكد من ملء العرض بالكامل */
-    boxSizing: 'border-box',/* لضمان عدم حدوث تداخل في الأبعاد */
-    minHeight: '1000px' // هذا سيجبر الجانبين (النموذج والصورة) على التمدد لهذا الارتفاع
+    minHeight: '100vh',      
+    width: '100%',           
+    boxSizing: 'border-box',
+    minHeight: '1000px'
   }}>
-    {/* محتواك هنا (مثل AuthBox) */}
+    
   
-    {/* الكارت الرئيسي: تم جعله شفافاً ليعرض الخلفية الموجودة تحته */}
+    
 <div style={{
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'stretch', 
   justifyContent: 'center',
-  backgroundColor: 'transparent', /* تم التأكد من شفافيته */
+  backgroundColor: 'transparent', 
   borderRadius: '15px',
-  boxShadow: 'none',             /* إزالة الظل الذي يظهر كإطار أبيض */
+  boxShadow: 'none',             
   overflow: 'hidden', 
   maxWidth: '1000px',
   width: '100%',
   border: 'none', 
-  textAlign:'left'              /* إزالة أي حدود خارجية */
+  textAlign:'left'              
 }}>
       
-      {/* 1. الجانب الأيسر: تم تعديله لتصفير أي خلفية بيضاء قادمة من ملف الـ CSS */}
+      
       <div 
         className="login-side-wrapper"
         style={{ 
@@ -450,11 +450,11 @@ return (
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          backgroundColor: 'transparent', /* يمنع تراكم الطبقات البيضاء */
+          backgroundColor: 'transparent', 
           alignSelf: 'stretch'// 
         }}
       >
-        {/* حقن ستايل مباشر لتصفير خلفية المكون الداخلي وضمان اختفاء المربع الأبيض الداخلي */}
+        
         <div style={{ width: '100%',height:'100%',  alignSelf: 'stretch',backgroundColor: 'transparent' }} className="force-transparent">
           <AuthBox 
             user={user} 
@@ -471,24 +471,24 @@ return (
   flex: '1', 
   minWidth: '600px', 
   backgroundImage: 'url("https://msgwords.com/wp-content/uploads/2025/01/Short-Welcome-Messages-for-Customers.jpg")', 
-  backgroundSize: 'cover', // هذه الخاصية تجعل الصورة تغطي المساحة بالكامل
+  backgroundSize: 'cover', 
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
-  // أضف هذا السطر لضمان أن الحاوية تأخذ الارتفاع الكامل للكارت
+  
   alignSelf: 'stretch' 
 }}>
 </div>
 
     </div>
 
-    {/* الرسالة التوضيحية بالأسفل */}
+    
     <div style={{ textAlign: 'center', marginTop: '30px', color: '#7f8c8d', fontWeight: '500' }}>
       <h3>🔒 Please Login or Create an Account above to browse the menu</h3>
     </div>
 
   </div>
 )}
-          {/* 🍽️ تم إضافة id="meals" هنا ليعمل الزر وينزل إلى شبكة عرض الطعام بنعومة 🌟 */}
+          
           {user && selectedRestaurant && (
              <main id="meals" className="meals-grid" style={{ padding: '20px', scrollMarginTop: '40px' }}>
                {meals
@@ -512,7 +512,7 @@ return (
              </main>
           )}
 
-          {/* رسالة ترحيبية */}
+        
           {user && !selectedRestaurant && (
             <div id="meals" style={{ textAlign: 'center', padding: '60px 20px', color: '#7f8c8d' }}>
               <h2>🍽️ Please select a restaurant from the menu to discover their delicious meals!</h2>

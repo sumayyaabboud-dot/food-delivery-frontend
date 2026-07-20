@@ -16,7 +16,7 @@ function AddMeal({ setMeals }) {
     axios.post('http://localhost:5005/api/meals', mealToSubmit)
         .then(response => {
             alert('Meal Added SUCCESSFULLY ✅');
-            // تحديث القائمة الرئيسية فوراً
+            
             const addedMeal = response.data?.meal || response.data?.data || response.data;
             if(addedMeal) setMeals(prev => [...prev, addedMeal]);
             setNewMeal({ name: '', price: '', description: '', image: '', category: '' }); 

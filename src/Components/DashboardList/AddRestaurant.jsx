@@ -23,7 +23,7 @@ function AddRestaurant({ fetchRestaurants }) {
       if (response.data.success) {
         alert('Restaurant added successfully! 🎉');
         setRestaurantData({ name: '', description: '', address: '', phone: '', type: 'all' });
-        fetchRestaurants(); // تحديث الجدول تلقائياً
+        fetchRestaurants(); 
       }
     } catch (error) {
       console.error("Error:", error);
